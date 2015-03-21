@@ -1,38 +1,20 @@
 /**
-* User.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * User.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
 
 module.exports = {
 
-  schema: true,
+  adapter: 'mongo',
 
   attributes: {
-
-    name: {
-      type: 'string',
-      required: true
-    },
-
-    surname: {
-      type: 'string',
-      required: true
-    },
-
-    email: {
-      type: 'string',
-      email: true,
-      required: true,
-      unique: true
-    },
-
-    fb_id: {
-      type: 'string',
-      required: true
-    }
-
+    provider: 'STRING',
+    uid: 'STRING',
+    name: 'STRING',
+    email: 'STRING',
+    firstname: 'STRING',
+    lastname: 'STRING'
   }
-
 };

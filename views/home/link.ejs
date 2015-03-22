@@ -5,9 +5,11 @@ function myFunction() {
     if (!val){
       document.getElementById("hide").className = "hidden";
     }
-    
+
 }
 </script>
+
+<% if(!user.url) {%>
 
 <div class="container">
 
@@ -16,24 +18,28 @@ function myFunction() {
       <h1>Get your link</h1>
       <p>
         Hello name here, here you are able to set up your own incoming payments like button. Just fill in your details below to allow us to
-        generate your personlised HTML script which you can copy and paste to your own website!
+        generate your personalised HTML script which you can copy and paste to your own website!
       </p>
     </div>
   </div>
 
-  <div class="row" style="padding-top: 1%;">
-    <div class="col-md-6 col-md-offset-3" >
-      <div class="panel" >
-        <form class="form-inline">
-          <div class="form-group">
-            <label for="website">Website URL</label>
-            <input type="text" size="40" class="form-control" id="website" placeholder="http://www.facebook.com/i_love_hampster_rating">
-          </div>
-          <button type="submit" onclick="myFunction()" class="btn btn-default">Generate!</button>
-        </form>
+    <div class="row" style="padding-top: 1%;">
+      <div class="col-md-6 col-md-offset-3" >
+        <div class="panel" >
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="website">Website URL</label>
+              <input type="text" size="40" class="form-control" id="website" placeholder="http://www.facebook.com/i_love_hampster_rating">
+            </div>
+            <button type="submit" class="btn btn-default generate">Generate!</button>
+          </form>
+        </div>
       </div>
-    </div>
   </div>
+
+
+<% } else { %>
+
 <div id="hide">
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
@@ -99,7 +105,7 @@ function post(path, params, method){
     document.body.appendChild(form);
     form.submit();
   }
-  document.addEventListener("DOMContentLoaded", function(event) { 
+  document.addEventListener("DOMContentLoaded", function(event) {
     console.log("loaded");
     });
 &lt;/script>
@@ -126,7 +132,7 @@ function post(path, params, method){
     </div>
   </div>
 
-  
+
 
   <div class="row" style="padding-top: 1%;">
     <div class="col-md-10 col-md-offset-1">
@@ -135,7 +141,7 @@ function post(path, params, method){
           How does this work?
         </div>
         <div class="panel-body">
-          It's simple! Just copy the Javascript section in to the head of your html document (between) &lt;head>&lt;/head> and copy 
+          It's simple! Just copy the Javascript section in to the head of your html document (between) &lt;head>&lt;/head> and copy
           HTML part into the place you require the code to be placed.
         </div>
       </div>
@@ -143,3 +149,5 @@ function post(path, params, method){
   </div>
 </div>
 </div><!-- /.container -->
+
+<% } %>

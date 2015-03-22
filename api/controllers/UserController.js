@@ -28,7 +28,7 @@ module.exports = {
 
 	'like': function(req,res,next) {
 
-		var _owner : req.user;
+		var _owner = req.user;
 		var _url = req.param('url');
 
 		if(_owner.bucket) {

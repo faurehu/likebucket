@@ -34,7 +34,8 @@ module.exports = {
   },
 
   link: function(req,res,next) {
-    res.view();
+    var user = req.user;
+    res.view({user: user});
   }
 
 }

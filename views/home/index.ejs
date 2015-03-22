@@ -32,6 +32,7 @@
   </div>
   <div class="container">
 
+<% if(user.likes.length != 0) { %>
   <div class="row" style="padding-top: 5%;">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-primary">
@@ -42,49 +43,51 @@
               <img src="http://upload.wikimedia.org/wikipedia/commons/1/13/Facebook_like_thumb.png" width="32px" height="32px">
             </div>
           </h4>
-
         </div>
-    
         <table class="table table-hover">
           <thead>
           <tr>
             <th>
-              Date
-            </th>
-            <th>
               Like
-            </th>
-            <th>
-              Unlike
             </th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>
-              20/03/2015
-            </td>
-            <td>
-              Facebook World
-            </td>
-            <td>
-              FB link
-            </td>
-          </tr>
-          <tr>
-            <td>
-              19/03/2015
-            </td>
-            <td>
-              Best Hampster Ratings
-            </td>
-            <td>
-              FB link
-            </td>
-          </tr>
+          
+             <tr>
+              <td>
+                No Likes to display :(
+              </td>
+            </tr>
+          
           </tbody>
         </table>
       </div>
     </div>
   </div>
+        <% } else { %>
+                    <div class="row" style="padding-top: 5%;">
+          <div class="col-md-1 col-md-offset-2"><a href="/bucket">
+          <button class="btn btn-default btn-lg" type="submit" style="background-color: white; color: black;">
+          <p>Add funds to your bucket</p>
+          <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png" border="0" alt="PayPal Acceptance Mark">
+          </button></a>
+          </div>
+          <div class="col-md-1 col-md-offset-3" style="padding-top: 1%;">
+          <a href="/link">
+          <button class="btn btn-default btn-lg" type="submit">
+          <p>Your Buckets Balance</p>
+          <center>
+          <h1>&pound;<%= bucket.ammunt %></h1>
+          <small>
+            The money will be divided up on 31/03/15 <br>
+            Click here to become a recipient
+          </small>
+          </center>
+          </button></a>
+          </div>
+          </div>
+
+        <% } %>
+
 </div>

@@ -18,22 +18,10 @@
 
   <% if (!user.bucket) { %>
 
-  <script type="text/javascript">
-  $('.form_date').datetimepicker({
-    //language:  'uk',
-    weekStart: 1,
-    todayBtn:  1,
-    autoclose: 1,
-    todayHighlight: 1,
-    startView: 2,
-    minView: 2,
-    forceParse: 0,
-    startDate: '+1d'
-    });
-</script>
 
 
-<form action="/bucket/create" class="form-horizontal"  role="form">
+
+<form action="/user/bucket" class="form-horizontal"  role="form">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
@@ -42,7 +30,7 @@
                       <input class="form-control" size="16" type="text" value="" id="date" readonly>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
-          <input type="hidden" id="dtp_input2" value="" /><br/>
+          <input type="hidden" id="dtp_input2" value="" name="end"/><br/>
               </div>
       </div>
   </div>
@@ -54,7 +42,7 @@
         <label for="amount" class="col-md-2 control-label">Amount</label>
         <div class="input-group col-md-5">
           <div class="input-group-addon">&pound;</div>
-          <input type="text" class="form-control" id="amount" placeholder="Amount">
+          <input type="text" class="form-control" id="amount" placeholder="Amount" name="amount">
         </div>
         <button type="submit" class="btn btn-primary col-md-6">Create your bucket</button>
       </div>
@@ -72,8 +60,8 @@
       <button class="btn btn-default btn-lg" type="submit">
       <p>Your current buckets balance</p>
       <center>
-      <h1>&pound;<%= Bucket.amount  %></h1>
-      <small>The money will be divided up on <%= Bucket.enddate  %></small>
+      <h1>&pound;<%= bucket.ammount %></h1>
+      <small>The money will be divided up on <%= bucket.end  %></small>
       </center>
       </button>
     </div>

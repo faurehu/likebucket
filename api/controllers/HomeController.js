@@ -29,7 +29,12 @@ module.exports = {
    bucket: function(req, res, next) {
 
       var user = req.user;
-      res.view({user: user});
+      var _id = req.user.bucket;
+      Bucket.find({id: _id}, function(err, _bucket) {
+        if(err) return next(err);
+        console.log(_bucket[0]);
+        res.view({user: user, bucket: _bucket[0]});
+      });
 
   },
 

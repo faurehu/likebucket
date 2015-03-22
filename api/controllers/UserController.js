@@ -9,24 +9,30 @@ module.exports = {
 
 	'bucket': function(req,res,next) {
 
-		var _start = new Date();
-		var _end = req.param('end');
-		var _ammount = req.param('amount');
-		var _uid = req.param('uid');
+		if(req.user.bucket){};
 
-		User.find({uid: _uid}, function(err, _user){
-			if(err) return next(err);
-			Bucket.create({start: _start, end: _end, ammount: _ammount, user: _user}, function(err, created) {
+		var _start = new Date();
+		var endString = req.param('end');
+		console.log(endString);
+		var _end = new Date(endString);
+		var _ammount = req.param('amount');
+		var _user = req.user;
+
+			Bucket.create({start: _start, end: _end, ammount: _ammount, owner: _user}, function(err, created) {
 					if(err) return next(err);
 					console.log("Created bucket");
 					console.log(created);
-			});
+					User.update({uid: _user.uid}, {bucket: created}, function(err, updated) {
 
-		});
+					})
+					res.redirect('/');
+			});
 
 	},
 
 	'like': function(req,res,next) {
+
+		console.log(req);
 
 		var _owner = req.user;
 		var _url = req.param('url');

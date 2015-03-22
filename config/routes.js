@@ -56,20 +56,20 @@ module.exports.routes = {
     action: 'bucket'
   },
 
-  'post /bucket': {
-    controller: 'user',
-    action: 'bucket'
-  },
-
-  'link': {
-    controller: 'user',
+  // 'post /bucket': {
+  //   controller: 'user',
+  //   action: 'bucket'
+  // },
+  //
+  '/link': {
+    controller: 'home',
     action: 'link'
   }
-
-  'post /like': {
-    controller: 'user',
-    action: 'like'
-  }
+  //
+  // 'post /like': {
+  //   controller: 'user',
+  //   action: 'like'
+  // }
 
   /***************************************************************************
   *                                                                          *

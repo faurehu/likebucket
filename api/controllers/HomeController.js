@@ -19,8 +19,6 @@ module.exports = {
 
       if (err) return next(err);
 
-      console.log(users[0].name);
-
       res.view({
         users: users
       });
@@ -30,7 +28,9 @@ module.exports = {
 
    bucket: function(req, res, next) {
 
-      res.view();
+      var user = req.user;
+
+      res.view({user: user});
 
   },
 

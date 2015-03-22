@@ -8,9 +8,17 @@
 module.exports = {
 
   index: function(req, res) {
-    res.view({
-      user: req.user
+
+    var _id = req.user.bucket;
+
+    Bucket.find({id: _id}, function(err, __bucket) {
+      if(err) return next(err);
+      var _bucket = __bucket
+      res.view({
+        user: req.user, bucket: _bucket[0]
+      });
     });
+
   },
 
   list: function(req, res, next) {

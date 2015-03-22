@@ -1,13 +1,11 @@
 <script>
 function myFunction() {
     var val = document.getElementById("website").value;
-    
+
 }
 </script>
 
 <div class="container">
-<% if(!user.url) {%>
-
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h1>Get your link</h1>
@@ -31,9 +29,6 @@ function myFunction() {
         </div>
       </div>
   </div>
-
-
-<% } else { %>
 
 <div id="hide">
 <div class="row">
@@ -141,6 +136,4 @@ function post(path, params, method){
     </div>
   </div>
 </div>
-
-<% } %>
 </div><!-- /.container -->

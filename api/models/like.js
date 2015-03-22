@@ -17,7 +17,8 @@ module.exports = {
     },
     url: {
       type: 'STRING',
-      required: true
+      required: true,
+      unique: true
     },
     bucket: {
       model: 'bucket'

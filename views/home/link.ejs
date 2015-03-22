@@ -1,3 +1,14 @@
+  <script>
+function myFunction() {
+    var val = document.getElementById("website").value;
+    document.getElementById("demo").innerHTML = val;
+    if (!val){
+      document.getElementById("hide").className = "hidden";
+    }
+    
+}
+</script>
+
 <div class="container">
 
   <div class="row">
@@ -23,7 +34,7 @@
       </div>
     </div>
   </div>
-
+<div id="hide">
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-primary" >
@@ -98,11 +109,7 @@ function post(path, params, method){
     </div>
   </div>
 
-  <script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = document.getElementById("website").value;
-}
-</script>
+
 
   <div class="row" style="padding-top: 1%;">
     <div class="col-md-10 col-md-offset-1">
@@ -134,5 +141,5 @@ function myFunction() {
       </div>
     </div>
   </div>
-
+</div>
 </div><!-- /.container -->

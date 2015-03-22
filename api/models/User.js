@@ -53,6 +53,10 @@ module.exports = {
 
     bucket: {
       model: 'bucket'
+    },
+
+    url: {
+      type: 'STRING',
     }
 
   }

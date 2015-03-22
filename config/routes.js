@@ -61,6 +61,11 @@ module.exports.routes = {
     action: 'bucket'
   },
 
+  'link': {
+    controller: 'user',
+    action: 'link'
+  }
+
   'post /like': {
     controller: 'user',
     action: 'like'

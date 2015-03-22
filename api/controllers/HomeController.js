@@ -30,8 +30,12 @@ module.exports = {
 
    bucket: function(req, res, next) {
 
-      res.view('home/bucket',{});
+      res.view();
 
+  },
+
+  link: function(req,res,next) {
+    res.view();
   }
 
 }

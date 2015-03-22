@@ -1,4 +1,6 @@
 <link href="/styles/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 
 <div class="container">
 
@@ -14,33 +16,18 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-  <% if (!user.bucket) { %> 
 
-  <script type="text/javascript">
-  $('.form_date').datetimepicker({
-    //language:  'uk',
-    weekStart: 1,
-    todayBtn:  1,
-    autoclose: 1,
-    todayHighlight: 1,
-    startView: 2,
-    minView: 2,
-    forceParse: 0,
-    startDate: '+1d'
-    });
-</script>
-=======
+
+
   <% if (!user.bucket) { %>
 
->>>>>>> 3adecadb1c185a896621f4fd4718360a82888a3c
 
 <form action="/bucket/create" class="form-horizontal"  role="form">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
                   <label for="dtp_input2" class="col-md-2 control-label">End Date</label>
-                  <div class="input-group date form_date col-md-5" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="dd/mm/yyyy">
+                  <div class="input-group date form_date col-md-5" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                       <input class="form-control" size="16" type="text" value="" id="date" readonly>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   </div>
@@ -83,8 +70,19 @@
 
   <% } %>
 
-<script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+  <script type="text/javascript">
+  $('.form_date').datetimepicker({
+    //language:  'uk',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0,
+    startDate: '+1d'
+    });
+</script>
 
 
 

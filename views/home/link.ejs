@@ -1,17 +1,12 @@
-  <script>
+<script>
 function myFunction() {
     var val = document.getElementById("website").value;
-    document.getElementById("demo").innerHTML = val;
-    if (!val){
-      document.getElementById("hide").className = "hidden";
-    }
-
+    
 }
 </script>
 
-<% if(!user.url) {%>
-
 <div class="container">
+<% if(!user.url) {%>
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -26,7 +21,7 @@ function myFunction() {
     <div class="row" style="padding-top: 1%;">
       <div class="col-md-6 col-md-offset-3" >
         <div class="panel" >
-          <form class="form-inline">
+          <form class="form-inline" method="GET">
             <div class="form-group">
               <label for="website">Website URL</label>
               <input type="text" size="40" class="form-control" id="website" placeholder="http://www.facebook.com/i_love_hampster_rating">
@@ -146,6 +141,6 @@ function post(path, params, method){
     </div>
   </div>
 </div>
-</div><!-- /.container -->
 
 <% } %>
+</div><!-- /.container -->

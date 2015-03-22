@@ -51,9 +51,19 @@ module.exports.routes = {
     action     : 'logout'
   },
 
-  'bucket': {
+  '/bucket': {
     controller: 'home',
     action: 'bucket'
+  },
+
+  'post /bucket': {
+    controller: 'user',
+    action: 'bucket'
+  },
+
+  'post /like': {
+    controller: 'user',
+    action: 'like'
   }
 
   /***************************************************************************

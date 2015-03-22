@@ -26,15 +26,12 @@ module.exports = {
       });
 
     });
+  },
 
-    bucket: function(req, res,next) {
+   bucket: function(req, res, next) {
 
-      res.view({
-
-      });
-
-    }
+      res.view('home/bucket',{});
 
   }
 
-};
+}

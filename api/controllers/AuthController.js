@@ -28,11 +28,11 @@ module.exports = {
           res.view('500');
           return;
         }
-
+        
         res.redirect('/');
         return;
       });
     })(req, res);
   }
-  
+
 };

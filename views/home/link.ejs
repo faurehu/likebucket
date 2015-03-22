@@ -1,0 +1,138 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Get your link</h1>
+      <p>
+        Hello name here, here you are able to set up your own incoming payments like button. Just fill in your details below to allow us to
+        generate your personlised HTML script which you can copy and paste to your own website!
+      </p>
+    </div>
+  </div>
+
+  <div class="row" style="padding-top: 1%;">
+    <div class="col-md-6 col-md-offset-3" >
+      <div class="panel" >
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="website">Website URL</label>
+            <input type="text" size="40" class="form-control" id="website" placeholder="http://www.facebook.com/i_love_hampster_rating">
+          </div>
+          <button type="submit" onclick="myFunction()" class="btn btn-default">Generate!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-primary" >
+        <div class="panel-heading" >
+          Javascript - Between the &lt;head>&lt;/head> tags
+        </div>
+        <div class="panel-body">
+          <pre><code>
+&lt;script>
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1411739829134468',
+            xfbml      : true,
+            version    : 'v2.1'
+        });
+        var page_like_or_unlike_callback = function(url, html_element) {
+      console.log("page_like_or_unlike_callback");
+        console.log(url);
+        getLogin(url);
+    }
+    FB.Event.subscribe('edge.create', page_like_or_unlike_callback);
+    FB.Event.subscribe('edge.remove', page_like_or_unlike_callback);
+    };
+    function getLogin(url) {
+      FB.login(function(response) {
+          if (response.authResponse) {
+              FB.api('/me', function(me){
+                if (me.id) {
+                      window.fbID=me.id;  // this works
+                      post('localhost:1337/like',{"url":url,"name":window.fbID});
+                      console.log(window.fbID);
+                  }
+              });
+          }
+      }, { scope: "email" });
+    }
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+&lt;/script>
+&lt;script>
+function post(path, params, method){
+  method = method || "post";
+  var form = document.createElement("form");
+  form.setAttribute("method",method);
+  form.setAttribute("action",path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+            form.appendChild(hiddenField);
+        }
+    }
+    document.body.appendChild(form);
+    form.submit();
+  }
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    console.log("loaded");
+    });
+&lt;/script>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = document.getElementById("website").value;
+}
+</script>
+
+  <div class="row" style="padding-top: 1%;">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-primary" >
+        <div class="panel-heading " >
+          HTML - Where you want the LikeBucket button to be placed
+        </div>
+        <div class="panel-body">
+          <pre><code>
+&lt;div class="fb-like" data-href="<div style="display: inline" id="demo"></div>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">&lt;/div>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="row" style="padding-top: 1%;">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-primary" >
+        <div class="panel-heading " >
+          How does this work?
+        </div>
+        <div class="panel-body">
+          It's simple! Just copy the Javascript section in to the head of your html document (between) &lt;head>&lt;/head> and copy 
+          HTML part into the place you require the code to be placed.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.container -->

@@ -36,6 +36,11 @@ module.exports.routes = {
     controller : 'home'
   },
 
+  '/list': {
+    controller: 'home',
+    action: 'list'
+  },
+
   '/login' : {
     controller : 'auth',
     action     : 'index'
@@ -44,6 +49,11 @@ module.exports.routes = {
   '/logout' : {
     controller : 'auth',
     action     : 'logout'
+  },
+
+  'bucket': {
+    controller: 'home',
+    action: 'bucket'
   }
 
   /***************************************************************************

@@ -7,14 +7,53 @@
 
 module.exports = {
 
-  adapter: 'mongo',
-
   attributes: {
-    provider: 'STRING',
-    uid: 'STRING',
-    name: 'STRING',
-    email: 'STRING',
-    firstname: 'STRING',
-    lastname: 'STRING'
+
+    provider: {
+      type: 'STRING',
+      required: true
+    },
+
+    uid: {
+      type: 'STRING',
+      required: true,
+      unique: true
+    },
+
+    name: {
+      type: 'STRING',
+      required: true
+    },
+
+    email: {
+      type: 'STRING',
+      required: true,
+      email: true
+    },
+
+    firstname: {
+      type: 'STRING',
+      required: true
+    },
+
+    lastname: {
+      type: 'STRING',
+      required: true
+    },
+
+    likes: {
+      collection: 'like',
+      via: 'owner'
+    },
+
+    support: {
+      collection: 'like',
+      via: 'recipient'
+    },
+
+    bucket: {
+      model: 'bucket'
+    }
+
   }
 };

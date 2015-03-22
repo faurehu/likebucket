@@ -80,6 +80,11 @@ module.exports.connections = {
     user: 'YOUR_POSTGRES_USER',
     password: 'YOUR_POSTGRES_PASSWORD',
     database: 'YOUR_POSTGRES_DB'
+  },
+
+  productionMongoHqDb: {
+    adapter: 'sails-mongo',
+    url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/sails'
   }
 
 

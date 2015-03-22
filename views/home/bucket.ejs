@@ -14,7 +14,8 @@
     </div>
   </div>
 
-  <% if (user.bucket) { %>
+  <% if (!user.bucket) { %>
+
 
 <form action="/bucket/create" class="form-horizontal"  role="form">
   <div class="row">
@@ -45,7 +46,7 @@
 
   <button type="submit" class="btn btn-primary col-md-5 col-md-offset-2">Create your bucket</button>
 
-  </form> 
+  </form>
 
   <% } else { %>
 

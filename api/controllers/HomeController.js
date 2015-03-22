@@ -29,7 +29,6 @@ module.exports = {
    bucket: function(req, res, next) {
 
       var user = req.user;
-
       res.view({user: user});
 
   },

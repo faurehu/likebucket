@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<style>
+div.background {
+	background-color:red;
+	height:20px;
+	color:white;
+	width: 53px;
+	opacity: 0.8;
+}
+</style>
+
+<body>
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+      	FB.init({
+        	appId      : '814256995277071',
+          	xfbml      : true,
+          	version    : 'v2.1'
+        });
+        var page_like_or_unlike_callback = function(url, html_element) {
+			console.log("page_like_or_unlike_callback");
+		  	console.log(url);
+		  	getLogin(url);
+		}
+		FB.Event.subscribe('edge.create', page_like_or_unlike_callback);
+		FB.Event.subscribe('edge.remove', page_like_or_unlike_callback);
+    };
+    function getLogin(url) {
+    	FB.login(function(response) {
+        	if (response.authResponse) {
+            	FB.api('/me', function(me){
+             		if (me.id) {
+                    	window.fbID=me.id;  // this works
+                    	post('localhost:1337/like',{"url":url,"name":me.id});
+                    	console.log(window.fbID);
+                	}
+            	});
+        	}
+     	}, { scope: "email" });
+   	}
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+function post(path, params, method){
+	method = method || "post";
+	var form = document.createElement("form");
+	form.setAttribute("method",method);
+	form.setAttribute("action",path);
+
+	console.log(method);
+
+	form._submit_function_ = form.submit;
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+            form.appendChild(hiddenField);
+        }
+    }
+    document.body.appendChild(form);
+    form._submit_function_();
+	}
+	document.addEventListener("DOMContentLoaded", function(event) {
+		console.log("loaded");
+  	});
+</script>
+<div class=background>
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="false" colorscheme="dark"></div>
+</div>
+</body>
+</html>

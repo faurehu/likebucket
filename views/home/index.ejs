@@ -66,13 +66,8 @@
     </div>
   </div>
         <% } else { %>
-                    <div class="row" style="padding-top: 5%;">
-          <div class="col-md-1 col-md-offset-2"><a href="/bucket">
-          <button class="btn btn-default btn-lg" type="submit" style="background-color: white; color: black;">
-          <p>Add funds to your bucket</p>
-          <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png" border="0" alt="PayPal Acceptance Mark">
-          </button></a>
-          </div>
+        <% if(bucket) { %>
+
           <div class="col-md-1 col-md-offset-3" style="padding-top: 1%;">
           <a href="/link">
           <button class="btn btn-default btn-lg" type="submit">
@@ -88,6 +83,22 @@
           </div>
           </div>
 
-        <% } %>
+        <% } else{ %>
+        <div class="row" style="padding-top: 5%;">
+<div class="col-md-1 col-md-offset-2"><a href="/bucket">
+<button class="btn btn-default btn-lg" type="submit" style="background-color: white; color: black;">
+<p>Add funds to your bucket</p>
+<img src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png" border="0" alt="PayPal Acceptance Mark">
+</button></a>
+</div>
+        <% } }%>
+
+        <div>
+        <a href="/link">
+        <button class="btn btn-default btn-lg" type="submit" style="background-color: white; color: black;">
+        <p>Put a plugin on your website</p>
+        </button>
+        <a>
+        </div>
 
 </div>

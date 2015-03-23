@@ -64,6 +64,11 @@ module.exports.routes = {
   '/link': {
     controller: 'home',
     action: 'link'
+  },
+
+  '/like': {
+    controller: 'home',
+    action: 'like'
   }
   //
   // 'post /like': {

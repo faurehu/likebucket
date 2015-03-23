@@ -49,6 +49,10 @@ module.exports = {
   link: function(req,res,next) {
     var user = req.user;
     res.view({user: user});
+  },
+
+  like: function(req, res, next) {
+    console.log(req);
   }
 
 }
